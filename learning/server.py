@@ -24,6 +24,7 @@ class server(object):
                     self.conn.send(b'close')
                     self.conn.close()
         
+    # Sends a line of data to the client
     def send_line(self, line):
         try:
             self.conn.sendall((str(line) + '\n').encode())
@@ -33,6 +34,7 @@ class server(object):
             self.conn.send(b'close')
             self.conn.close()
 
+    # Receives a line of data from the client
     def receive_line(self):
         line = ''
         while not line.endswith('\n'):
@@ -43,6 +45,7 @@ class server(object):
 
         return line.strip()
 
+    # Sends button presses to the client
     def send_buttons(self, buttons):
         self.send_line(''.join(['1' if button else '0' for button in buttons]))
                 
