@@ -45,6 +45,14 @@ class server(object):
 
         return line.strip()
 
+    # Receives a list of data sent as a space seperated string from the client
+    # Parameters:
+    #   type: type to which received list elements are converted
+    def receive_list(self, type):
+        line = self.receive_line()
+        ls = [type(v) for v in line.split(' ')]
+        return ls
+
     # Sends button presses to the client
     def send_buttons(self, buttons):
         self.send_line(''.join(['1' if button else '0' for button in buttons]))

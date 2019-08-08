@@ -16,6 +16,8 @@ client = require('client')
 local ENDSTAT
 local ENDSTATAddr=0xC3
 
+savestate.loadslot(1)
+
 status, err = pcall(client.connect, '127.0.0.1', 2222)
 
 while true do
@@ -28,6 +30,9 @@ while true do
             local buttons = nil
             buttons = client.receiveButtons(BUTTON_NAMES)
             joypad.set(buttons,1)
+
+            table = {1,2,3,4,}
+            client.sendList(table)
         end
 	end
     

@@ -53,6 +53,14 @@ function Client.sendLine(line)
     end
 end
 
+function Client.sendList(list)
+    line = ''
+    for i=1,#list do
+        line = line .. list[i] .. ' '
+    end
+    Client.sendLine(line)
+end
+
 -- Recieve button presses from server
 function Client.receiveButtons(buttonNames)
     local data = Client.receiveLine()

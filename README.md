@@ -8,4 +8,6 @@ To run:
 - run learning/learn.py using python to start server
 - run emu-scripts/play.lua in Bizhawk to start client and connect to server
 
-Note: you may need to change the Lua Core setting to Lua+LuaInterface in Config->Customize->Advanced
+Note: 
+- you may need to change the Lua Core setting to Lua+LuaInterface in Config->Customize->Advanced
+- the current test code in play.lua assumes a save state exists in slot 1
